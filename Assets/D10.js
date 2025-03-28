@@ -53,6 +53,7 @@ me.skills.push("JavaScript");
 */
 me.skills.pop();
 // console.log(me);
+
 // Funzioni
 
 /* ESERCIZIO 1
@@ -81,26 +82,51 @@ console.log(whoIsBigger(9, 3));
 
   Es.: splitMe("I love coding") => ritorna ["I", "Love", "Coding"]
 */
-
+const splitMe = function (str) {
+  const words = str.split(" ");
+  console.log(words);
+};
+console.log(splitMe("I love coding"));
 /* ESERCIZIO 4
   Crea una funzione chiamata "deleteOne" che riceve una stringa e un booleano come parametri.
   Se il valore booleano è true la funzione deve ritornare la stringa senza il primo carattere, altrimenti la deve ritornare senza l'ultimo.
 */
+const deleteOne = function (str, removed) {
+  if (removed) {
+    return str.slice(1);
+  } else {
+    return str.slice(0, -1);
+  }
+};
+console.log(deleteOne("Epicode", true));
+console.log(deleteOne("Wallet", false));
 
 /* ESERCIZIO 5
   Crea una funzione chiamata "onlyLetters" che riceve una stringa come parametro e la ritorna eliminando tutte le cifre numeriche.
 
   Es.: onlyLetters("I have 4 dogs") => ritorna "I have dogs"
 */
-
+// questo non è uscito dal mio sacco...
+const onlyLetters = function (str) {
+  return str.replace(/[0-9]/g, "");
+};
+console.log(onlyLetters("I have 4 dogs"));
 /* ESERCIZIO 6
   Crea una funzione chiamata "isThisAnEmail" che riceve una stringa come parametro e ritorna true se la stringa è un valido indirizzo email.
 */
+// TO-DO!!!
+// const isThisAnEmail = function(str){
+// if()
+// }
 
 /* ESERCIZIO 7
   Scrivi una funzione chiamata "whatDayIsIt" che ritorna il giorno della settimana corrente.
 */
-
+// TO-DO!!!
+// const whatDayIsIt = function () {
+//   return date.getDay();
+// };
+// console.log(whatDayIsIt());
 /* ESERCIZIO 8
   Scrivi una funzione chiamata "rollTheDices" che riceve un numero come parametro.
   Deve invocare la precedente funzione dice() il numero di volte specificato nel parametro, e deve tornare un oggetto contenente una proprietà "sum":
@@ -178,10 +204,11 @@ const getContainer = function () {
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
 // TO-DO !!
-const getTds = function () {
-  getTds = document.getElementsByName("td");
+/*const getTds = function () {
+  getTds = document.getElementsByTagName("td");
 };
-// console.log(tds);
+console.log(getTds());*/
+
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
@@ -194,14 +221,21 @@ const getTds = function () {
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
-const getLinks = function () {
-  getLinks = document.querySelectorAll("a");
-  getLinks.style.backgroundColor = "red";
-};
+// const getLinks = function () {
+//   getLinks = document.getElementsByTagName("a");
+//   getLinks.style.backgroundColor = "red";
+// };
 
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
+// const creationElement = function () {
+//   const list = document.getElementById("myList");
+//   const newElement = document.createElement("li");
+//   newElement.innerText = "Element 4";
+//   newElement.appendChild("li");
+//   console.log(newElement);
+// };
 
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
