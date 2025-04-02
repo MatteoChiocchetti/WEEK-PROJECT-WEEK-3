@@ -12,7 +12,9 @@ REGOLE
 /* ESERCIZIO A
   Crea una variabile chiamata "sum" e assegnaci il risultato della somma tra i valori 10 e 20.
 */
-let sum = 10 + 20;
+let a = 10;
+let b = 20;
+let sum = a + b;
 console.log(sum);
 
 /* ESERCIZIO B
@@ -20,113 +22,125 @@ console.log(sum);
 */
 const random = Math.floor(Math.random() * 21);
 console.log(random);
+
 /* ESERCIZIO C
   Crea una variabile chiamata "me" e assegnaci un oggetto contenente le seguenti proprietà: name = il tuo nome, surname = il tuo cognome, age = la tua età.
 */
 const me = {
-  name: "Matteo",
-  surname: "Chiocchetti",
+  name: "matteo",
+  lastName: "Chiocchetti",
   age: 24,
 };
-// console.log(me);
+console.log(me);
 
 /* ESERCIZIO D
   Crea del codice per rimuovere programmaticamente la proprietà "age" dall'oggetto precedentemente creato.
 */
+
 delete me.age;
-// console.log(me);
+console.log(me);
 
 /* ESERCIZIO E
   Crea del codice per aggiungere programmaticamente all'oggetto precedentemente creato un array chiamato "skills", contenente i linguaggi di programmazione che conosci.
 */
-me.skills = ["CSS, HTML"];
-// console.log(me);
+
+me.skills = ["javascript", "CSS"];
+console.log(me);
 
 /* ESERCIZIO F
   Crea un pezzo di codice per aggiungere un nuovo elemento all'array "skills" contenuto nell'oggetto "me".
 */
-me.skills.push("JavaScript");
-// console.log(me);
+
+me.skills.push("HTML");
+console.log(me);
 
 /* ESERCIZIO G
   Crea un pezzo di codice per rimuovere programmaticamente l'ultimo elemento dall'array "skills" contenuto nell'oggetto "me".
 */
 me.skills.pop();
-// console.log(me);
-
-// Funzioni
-
+console.log(me);
 /* ESERCIZIO 1
   Crea una funzione chiamata "dice": deve generare un numero casuale tra 1 e 6.
 */
-const dice = function () {
-  return Math.floor(Math.random() * 6) + 1;
-};
+function dice() {
+  const random = Math.floor(Math.random() * 6 + 1);
+  return random;
+}
 console.log(dice());
 /* ESERCIZIO 2
   Crea una funzione chiamata "whoIsBigger" che riceve due numeri come parametri e ritorna il maggiore dei due.
 */
-const whoIsBigger = function (num1, num2) {
+function whoIsBigger(num1, num2) {
   if (num1 > num2) {
     return num1;
   } else {
     return num2;
   }
-};
-console.log(whoIsBigger(4, 6));
-console.log(whoIsBigger(12, 8));
-console.log(whoIsBigger(9, 3));
+}
+console.log(whoIsBigger(8, 4));
+console.log(whoIsBigger(10, 12));
 
 /* ESERCIZIO 3
   Crea una funzione chiamata "splitMe" che riceve una stringa come parametro e ritorna un'array contenente ogni parola della stringa.
 
   Es.: splitMe("I love coding") => ritorna ["I", "Love", "Coding"]
 */
-const splitMe = function (str) {
-  const words = str.split(" ");
-  console.log(words);
-};
-console.log(splitMe("I love coding"));
+function splitMe(str) {
+  const phrase = str.split(" ");
+  return phrase;
+}
+console.log(splitMe("Ciao sono Matteo"));
+
 /* ESERCIZIO 4
   Crea una funzione chiamata "deleteOne" che riceve una stringa e un booleano come parametri.
   Se il valore booleano è true la funzione deve ritornare la stringa senza il primo carattere, altrimenti la deve ritornare senza l'ultimo.
 */
-const deleteOne = function (str, removed) {
-  if (removed) {
+function deletOne(str, bool) {
+  if (bool) {
     return str.slice(1);
   } else {
     return str.slice(0, -1);
   }
-};
-console.log(deleteOne("Epicode", true));
-console.log(deleteOne("Wallet", false));
+}
+console.log(deletOne("Ciao", true));
+console.log(deletOne("Ciao", false));
 
 /* ESERCIZIO 5
   Crea una funzione chiamata "onlyLetters" che riceve una stringa come parametro e la ritorna eliminando tutte le cifre numeriche.
 
   Es.: onlyLetters("I have 4 dogs") => ritorna "I have dogs"
 */
-// questo non è uscito dal mio sacco...
-const onlyLetters = function (str) {
-  return str.replace(/[0-9]/g, "");
-};
-console.log(onlyLetters("I have 4 dogs"));
+
 /* ESERCIZIO 6
   Crea una funzione chiamata "isThisAnEmail" che riceve una stringa come parametro e ritorna true se la stringa è un valido indirizzo email.
 */
-// TO-DO!!!
-// const isThisAnEmail = function(str){
-// if()
-// }
+//TO-DO!!!
+const isThisAnEmail = function (str) {
+  if (str.includes("@") && !str.includes(" ")) {
+    if (str.includes(".")) {
+      return "è un email";
+    } else {
+      return "non è un email";
+    }
+  } else {
+    return "non è un' email";
+  }
+};
+console.log(isThisAnEmail("Matteo@gmail.com"));
 
 /* ESERCIZIO 7
   Scrivi una funzione chiamata "whatDayIsIt" che ritorna il giorno della settimana corrente.
 */
-// TO-DO!!!
-// const whatDayIsIt = function () {
-//   return date.getDay();
-// };
-// console.log(whatDayIsIt());
+const whatDayIsIt = function () {
+  const days = ["Domenica", "Lunedì", "Martedi", "Mercoledì", "Giovedì", "Venerdì", "Sabato"];
+  const today = new Date();
+  const day = today.getDay();
+  console.log(today);
+  console.log(day);
+  return days[day];
+};
+console.log(whatDayIsIt());
+
 /* ESERCIZIO 8
   Scrivi una funzione chiamata "rollTheDices" che riceve un numero come parametro.
   Deve invocare la precedente funzione dice() il numero di volte specificato nel parametro, e deve tornare un oggetto contenente una proprietà "sum":
@@ -139,14 +153,38 @@ console.log(onlyLetters("I have 4 dogs"));
       values: [3, 3, 4]
   }
 */
+function rollTheDices(num) {
+  const list = [];
+  for (let i = 0; i < num; i++) {
+    list.push(dice());
+  }
+  return list;
+}
+console.log(rollTheDices(10));
 
 /* ESERCIZIO 9
   Scrivi una funzione chiamata "howManyDays" che riceve una data come parametro e ritorna il numero di giorni trascorsi da tale data.
 */
-
+function howManyDays(date) {
+  const today = new Date();
+  const daysPassed = today - date;
+  const transform = Math.floor(daysPassed / (1000 * 3600 * 24));
+  return transform;
+}
+console.log(howManyDays(new Date("August 9, 2000")));
 /* ESERCIZIO 10
   Scrivi una funzione chiamata "isTodayMyBirthday" che deve ritornare true se oggi è il tuo compleanno, falso negli altri casi.
 */
+function isMyBirthday() {
+  let oggi = new Date();
+  let mioCompleanno = new Date("August 9, 2000");
+  if (oggi.getMonth() === mioCompleanno.getMonth() && oggi.getDate() === mioCompleanno.getDate()) {
+    return true;
+  } else {
+    return false;
+  }
+}
+console.log(isMyBirthday());
 
 // Arrays & Oggetti
 
@@ -195,10 +233,6 @@ console.log(onlyLetters("I have 4 dogs"));
 /* ESERCIZIO 20
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
-const getContainer = function () {
-  getContainer = document.getElementById("container");
-  // console.log(container);
-};
 
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
